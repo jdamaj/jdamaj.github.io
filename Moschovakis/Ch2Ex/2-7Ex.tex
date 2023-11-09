@@ -1,0 +1,49 @@
+
+\begin{exercise}
+    Prove that a binary relation $R(x,y)$ on a set $S$ is wellfounded if an only if there are no infinite $<_R$-descending chains. 
+\end{exercise}
+
+\begin{proof}
+    If $R(x,y)$ is not wellfounded then there must be some nonempty set $A$ such that $A$ has no $<_R$ minimal element. Using $A$, we construct an infinite $<_R$-descending chain as follows: Let $x_0 \in A$ arbitrary and given $x_i$, choose $x_{i+1} \in A$ such that $x_i >_R x_{i+1}$. Such an element will always exist since $A$ has no least element and so $x_0 >_R x_1 > \cdots$ is an infinite $<_R$-descending chain. \\ 
+    Conversely, suppose there is an infinite $<_{R}$-descending chain $x_0 >_R x_1 >_R \cdots$ and let $A = \{x_i \colon in \in \omega\}$. $A$ is nonempty set with no $<_R$ minimal element and so $R(x,y)$ is not wellfounded. 
+\end{proof}
+
+\begin{exercise}
+    Prove that every Borel wellfounded relation has countable length and every $\undertilde{\Delta}^1_2$ wellfounded relation has length less than $\aleph_2$. 
+\end{exercise}
+
+\begin{proof}
+    Recall that if $R(x,y)$ is a relation we define its strict part to be 
+    \[ <_R = \{(x,y) \colon R(x,y) \& \neg R(y,x)\} \] 
+    So, if $R$ is $\undertilde{\Delta}^1_n$ we see that $<_R$ is $\undertilde{\Delta}^1_n$ as well. Hence, if $R$ is a Borel relation then $<_R$ must be $\aleph_0$-Suslin and so, applying the Kunen-Martin theorem, it must have length less than $\aleph_1$. Similarly, if $R$ is $\undertilde{\Delta}_2^1$ then $<_R$ is $\aleph_1$-Suslin and so has length less than $\aleph_2$.
+\end{proof}
+
+\begin{exercise}
+    Let $R$ be a wellfounded relation on $S$ with rank function $\rho$, and let $f: S \to \text{ Ordinals}$ be an order preserving function, ie. 
+    \[ x<_Ry \Rightarrow f(x) < f(y) \]
+    Prove that for every $x$ in $S$, $\rho(x) \le f(x)$. 
+\end{exercise}
+
+\begin{proof}
+    We show this by induction on the relation. Suppose that for all $y <_R x$, $\rho(y) \le f(y)$ then, since we have $f(y) < f(x)$ for each $y <_R x$, $f(x) \ge f(y) +1$ for all $y <_R x$ and so 
+    \[ f(x) \ge \sup\{ f(y)+1 \colon y <_R x\} \ge \sup\{\rho(y)+1 \colon y <_R x\} = \rho(x)\] 
+\end{proof}
+
+\noindent
+A norm $\vp$ on $S$ is called regular if it is onto some ordinal $\lambda$. \\ 
+Given a norm $\vp$ on $S$ the associated the binary relation $\le^{\vp}$ on $S$ is defined by 
+\[ x \le^{\vp} y \Leftrightarrow \vp(x) \le \vp(y) \]
+
+\begin{exercise}
+    Prove that a binary relation $\preceq$ on a set $S$ is a prewellordering if and only if there is a norm $\vp$ on $S$ such that $\preceq = \le^{\vp}$. Moreover if $\preceq$ is a prewellordering, then there is a unique regular $\vp$ on $S$ such that $\preceq = \le^{\vp}$.
+\end{exercise}
+
+\begin{proof}
+    If $\preceq$ is a prewellordering, we claim that its rank function $\rho$ is a norm on $S$ such that $\preceq = \le^{\rho}$, ie. for all $x,y \in S$ 
+    \[ x \preceq y \Leftrightarrow \rho(x) \le \rho(y) \]
+    This follows from the fact that if $x \preceq y$ then $\rho(x) \le \rho(x)$ since all elemnts of $S$ strictly below $x$ will also be strictly below $y$. Similarly, if $\neg x \preceq y$, then $y$ is strictly below $x$ so $\rho(y) < \rho(x)$.  \\
+    Conversely, if there is some norm $\vp$ on $S$ such that $\preceq = \le^{\vp}$, $\preceq$ must be prewellordering since $\le$ is a wellorder and, under the pullback, the only condition it may fail to satisfy is antisymmetry. \\ 
+    To show that there is a unique regular norm satisfying this property note that the rank function $\rho$ is a regular norm since it is onto $\lambda = |\preceq|$ and so to show uniqueness it is enough to show any regular norm is equal to $\rho$. We do this by induction on the ordering: Suppose that $\vp$ is another regular norm and for all $y$ strictly below $x$, $\vp(y) = \rho(y)$. We must have 
+    \[ \vp(x) \ge \sup\{ \vp(y)+1 \colon y \prec x\} = \sup\{ \rho(y) + 1 \colon y \prec x\} = \rho(x) \]
+    and if this inequality is strict, since $\vp$ is surjective, there must be some $z$ such that $\vp(z) = \rho(x)$. We cannot have $z \prec x$ (otherwise $\vp(z) = \rho(z) < \rho(x)$) and so $x \preceq z$. However, this implies $\vp(x) \le \vp(z)$ contradicting our choice of $z$. Hence, we must have $\vp(x) = \rho(x)$ as well. 
+\end{proof}
