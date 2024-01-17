@@ -1,0 +1,121 @@
+
+\begin{exercise}
+    Show that any two inital objects are uniquely isomorphic. Show that any two final objects are uniquely isomorphic.
+\end{exercise}
+
+\begin{exercise}
+    What are the initial objects in \textit{Sets}, \textit{Rings}, and \textit{Top}? How about in the category of subsets of a set or the category of open subsets of a topological space? 
+\end{exercise}
+
+\begin{exercise}
+    Show that $A \to S^{-1}A$ is injective if and only if $S$ contains no zerodivisors. 
+\end{exercise}
+
+\begin{exercise}
+    Show that $A \to S^{-1}A$ satisfies the following universal property: $S^{-1}A$ is inital among $A$-algebras $B$ where every element of $S$ is sent to an invertible element in $B$.
+\end{exercise}
+    
+\begin{exercise}
+    Show that $\phi: M \to S^{-1}M$ exists, by constructing something satisfying the universal property. 
+\end{exercise}
+
+\begin{exercise} \mbox{}
+    \begin{enumerate}[label = (\alph*)]
+        \item Show that localization commutes with finite products, or equivalently, finite direct sums. 
+        \item Show that localization commutes with arbitrary direct sums. 
+        \item Show that ``localization does not necessarily commute with infinite products'': the obvious map $S^{-1}(\prod_i M_i) \to \prod_i S^{-1} M_i$ induced by the universal property is not always an isomorphism. 
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    Show that $\bZ/(10) \otimes_{\bZ} \bZ/(12) \cong \bZ/(2)$ 
+\end{exercise}
+
+\begin{exercise}
+    Show that $(\cdot) \otimes_A N$ gives a covariant functor $Mod_A \to Mod_A$. Show that $(\cdot) \otimes_A N$ is right-exact. 
+\end{exercise}
+
+\begin{exercise}
+    Show that $(T, t: M \times N \to T)$ is unique up to isomorphism.
+\end{exercise}
+
+\begin{exercise}
+    Show that the construction of 1.3.5 satisfies the universal property of the tensor product. 
+\end{exercise}
+
+\begin{exercise}\mbox{}
+    \begin{enumerate}[label= (\alph*)]
+        \item if $M$ is an $A$-module and $A \to B$ is a morphism of rings, give $B \otimes_A M$ the structure of a $B$-module. Show that this describes a functor $Mod_A \to Mod_B$
+        \item If further $A \to C$ is another morphism of rings, show that $B \otimes_A C$ has a natural structure of a ring. 
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    If $S$ is a multiplicative subset of $A$ and $M$ is an $A$-module, describe a natural isomorphism $(S^{-1}A)\otimes_A M \to S^{-1}M$. 
+\end{exercise}
+
+\begin{exercise}
+    Show that tensor products commute with arbitrary direct sums: If $M$ and $\{N_i\}_{i \in I}$ are $A$-modules, describe an isomorphism 
+    \[ \begin{tikzcd}
+        M \otimes (\oplus_{i \in I}N) \arrow[r] & \otimes_{i \in I}(M \otimes N_i)
+    \end{tikzcd} \]
+\end{exercise}
+
+\begin{exercise}
+    Show that in $Sets$, 
+    \[ X \times_Z Y = \{ (x, y) \in X \times Y \colon \alpha(x) = \beta(y) \} \]
+\end{exercise}
+
+\begin{exercise}
+    If $X$ is a topological space, show that fibered products always exist in the category of open sets of $X$, by describing what a fibered product is. 
+\end{exercise}
+
+\begin{exercise}
+    If $Z$ is a final object in a category $\cC$, and $X, Y \in \cC$, show that ``$X \times_Z Y = X \times Y$'': the fibered product over $Z$ is uniquely isomorphic to the product. 
+\end{exercise}
+
+\begin{exercise}
+    If the two squares in the following commutative diagram are Cartesian diagrams, show that the outside rectangle is also a Cartesian diagram. 
+    \[ \begin{tikzcd}
+        U \arrow[r] \arrow[d] & V \arrow[d] \\ 
+        W \arrow[r] \arrow[d] & X \arrow[d] \\ 
+        Y \arrow[r] & Z 
+    \end{tikzcd} \] 
+\end{exercise}
+
+\begin{exercise}
+    Given morphisms $X_1 \to Y$, $X_2 \to Y$, show that there is a natural morphism $X_1 \times_Y X_2 \to X_1 \times_Z X_2$, assuming that both fibered products exist.
+\end{exercise}
+
+\begin{exercise}
+    Suppose that we are given morphisms $X_1, X_2 \to Y$ and $Y \to Z$. Show that the following diagram is a Cartesian square. 
+    \[ \begin{tikzcd}
+        X_1 \times_Y X_2 \arrow[r] \arrow[d] & X_1 \times_Z X_2 \arrow[d] \\ 
+        Y \arrow[r] & Y \times_Z Y 
+    \end{tikzcd} \]
+\end{exercise}
+
+\begin{exercise}
+    Show that the coproduct for $Sets$ is disjoint union. 
+\end{exercise}
+
+\begin{exercise}
+    Suppose $A \to B$ and $A \to C$ are two ring morphisms, so in particular $B$ and $C$ are $A$-modules. Recall that $B \otimes_A C$ has a ring structure. Show that there is a natural morphism $B \to B \otimes_A C$ given by $b \mapsto b \otimes 1$. Similarly, there is a natural morphism $C \to B \otimes_A C$. Show that this gives a fibered coproduct on rings, ie. that 
+    \[ \begin{tikzcd}
+        B \otimes_A C & C \arrow[l] \\ 
+        B \arrow[u] & A \arrow[u] \arrow[l]
+    \end{tikzcd} \]
+\end{exercise}
+
+\begin{exercise}
+    Show that the composition of two monomorphisms is a monomorphism. 
+\end{exercise}
+
+\begin{exercise}
+    Prove that a morphism $\pi: Y \to Z$ is a monomorphism if and only if the fibered product $X \times_Y X$ exists, and the induced diagonal morphism $\delta_\pi: X \to X \times_Y X$ is an isomorphism. 
+\end{exercise}
+
+\begin{exercise}
+    Show that if $Y \to Z$ is a monomorphism, then the natural morphism $X_1 \times_Y X_2 \to X_1 \times_Z X_2$ is an isomorphism. 
+\end{exercise}
+
