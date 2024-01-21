@@ -47,7 +47,7 @@
 \end{exercise}
 
 \begin{proof}
-    Since the restriction maps are the usual restriction maps for functions, this forms a presheaf. We can also check that the identity axiom holds pointwise, as above. Hence, to check this is a sheaf we need to ensure that when a collection of locally constnat maps are glued together, the resulting function is also locally constant. However, this is immediate since if $\{U_i\}$ is a cover of $U$ and $p \in U$, we can find some $i$ such that $u \in U_i$ and so there is an neighborgood of $u$ in $U_i$ on which $f_i$ constant. Then, $f$ will still be constant on this neighborgood of $u$.  
+    Since the restriction maps are the usual restriction maps for functions, this forms a presheaf. We can also check that the identity axiom holds pointwise, as above. Hence, to check this is a sheaf we need to ensure that when a collection of locally constnat maps are glued together, the resulting function is also locally constant. However, this is immediate since if $\{U_i\}$ is a cover of $U$ and $p \in U$, we can find some $i$ such that $u \in U_i$ and so there is an neighborhood of $u$ in $U_i$ on which $f_i$ constant. Then, $f$ will still be constant on this neighborhood of $u$.  
 \end{proof}
 
 \begin{exercise}
@@ -61,14 +61,37 @@
 \begin{exercise} Suppose we are given a continuous map $\mu: Y \to X$. Show that the ``sections of $\mu$'' form a sheaf. More precisely, to each open set $U$ of $X$, associate the set of continuous maps $s: U \to Y$ such that $\mu \circ s = \id_U$ Show that this forms a sheaf. 
 \end{exercise}
 
+\begin{proof}
+    Again, the presheaf conditions and identity are immediate and gluability holds as when sections are glued together they remain a section (since the property is local). 
+\end{proof}
+
 \begin{exercise}
     Suppose $\pi: X \to Y$ is a continuous map, and $\cF$ a presheaf on $X$. Then define $\pi_*\cF$ by $\pi_*\cF(V) = \cF(\pi^{-1}(V))$, where $V$ is an open subset of $Y$. Show that $\pi_*\cF$ is a presheaf on $Y$, and is a sheaf if $\cF$ is.
 \end{exercise}
+
+\begin{proof}
+    A continuous map $\pi: X \to Y$ induces a covariant functor $\pi^{-1}: \cO_Y \to \cO_X$, sending an open set in $Y$ to its inverse image. So, viewing a presheaf on $X$ as a contravariant functor $\cF: \cO_X \to Sets$, we see that the pushforward of $\cF$ is exactly the contravariant mapping $\cF \circ \pi^{-1}: \cO_Y \to Sets$ which is a functor (ie. a presheaf) since the composition of two functors is a functor. Further, suppose that $\cF$ is a sheaf. Exercise $C$ showed that the sheaf conditions are equivalent to 
+    \[ \cF(\text{colim}U_i) = \lim(\prod \cF(U_i) \rightrightarrows \prod \cF(U_i \cap U_j)) \] 
+    To see that this also holds for $\cF \circ \pi^{-1}$, note that $\pi^{-1}$ has a right adjoint and so it commutes with colimits. Thus, we have that 
+    \begin{align*}
+        \cF \circ \pi^{-1}(\text{colim}\, U_i) & = \cF(\text{colim}\,\pi^{-1}(U_i)) \\ 
+        & = \lim(\prod \cF( \pi^{-1}(U_i)) \rightrightarrows \prod \cF(\pi^{-1}(U_i) \cap \pi^{-1}(U_j))) \\ 
+        & = \lim(\prod (\cF \circ \pi^{-1})(U_i) \rightrightarrows \prod (\cF\circ \pi^{-1})(U_i \cap U_j))
+    \end{align*}
+\end{proof}
 
 \begin{exercise}
     Suppose $\pi X \to Y$ is a continuous map, and $\cF$ is a sheaf of sets on $X$. If $\pi(p)= q$, describe a natural morphism of stalks $(\pi_*\cF)_q \to \cF_p$. 
 \end{exercise}
 
+\begin{proof}
+    Since each stalk is the colimit of open sets containing a point, to produce a map $(\pi_*\cF)_q \to \cF_p$ it is enough to give a maps $\pi_*\cF(V) \to \cF_p$ for each open $V$ contianing $p$, commuting with the restriction maps. Given such a $V$, define the map $m_V$ by $m_V(f) = (f, \pi^{-1}(V))$. Note that the $m_V$'s commute with the restriction maps since given $V' \subseteq V$, $(\text{res}_{V, V'}(f), \pi^{-1}(V')) = (f, \pi^{-1}(V))$ as elements of $\cF_p$ since they are equal when restricted to $\pi^{-1}(V')$ (since $\text{res}_{V, V'}$ and $\text{res}_{\pi^{-1}(V), \pi^{-1}(V)}$ are the same map). 
+\end{proof}
+
 \begin{exercise}
-    If $(X, \cO_X)$ is a ringed space, and $\cF$ is an $\cO_X$-module, describe how for each $p \in X$, $\cF_p$ is an $\cO_{x, p}$-module. 
+    If $(X, \cO_X)$ is a ringed space, and $\cF$ is an $\cO_X$-module, describe how for each $p \in X$, $\cF_p$ is an $\cO_{X, p}$-module. 
 \end{exercise}
+
+\begin{proof}
+    We define an $\cO_{X, p}$ action on $\cF_p$ by $[(f, U)] \cdot [(g, V)] = [(f|_{U \cap V} \cdot_{U \cap V} g|_{U \cap V}, U \cap V)]$, ie. we take the $\cO_X$-module action of $f$ on $g$ viewed as elements of the sections above $U \cap V$. Note that this action is well defined since given two representatives of the same germ, restricting them to an open set on which they agree, we see they induce the same action since the restriction maps commute the original $\cO_X$ module action. 
+\end{proof}
