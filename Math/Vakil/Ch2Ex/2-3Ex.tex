@@ -1,0 +1,64 @@
+
+\begin{exercise}
+    If $\Phi: \cF \to \cG$ is a morphism of presheaves on $X$, and $p \in X$, describe an induced morphism of stalks $\Phi_p: \cF_p \to \cG_p$.
+\end{exercise}
+
+\begin{proof}
+    Since $\cF_p = \colim \cF(U)$, to define a map out of the colimit it is enough to define maps $m_U: \cF(U) \to \cG_p$ for each open set $U$ containing $p$. These maps can be given by $m_U(f) = [(\Phi(U)(f), U)]$ and note that given a restriction map $\res_{U, V}: \cF(U) \to \cF(V)$ we have that 
+    \[ m_V( \res_{U, V}(f)) = [( \Phi(V)(\res_{U, V}(f)), V)]  = [( \res_{U, V}(\Phi(U)(f)), V)] = [((\Phi(U)(f)), U)] = m_U(f) \]
+    Thus these maps give a unique map from the colimit $\Phi_p: \cF_p \to \cG_p$. 
+\end{proof}
+
+\begin{exercise}
+    Suppose $\pi: X \to Y$ is a continuous map of topological spaces. Show that pushforward gives a functor $\pi_*: Sets_X \to Sets_Y$.
+\end{exercise}
+
+\begin{proof}
+    If $\pi: X \to Y$ is a continuous map, recall that this induces a functor $\pi^{-1}: \cO_Y \to \cO_X$ on the categories of open sets of these two spaces. Exercise 2.2.H showed that for each sheaf $\cF$ on $X$, $\pi_*\cF$ is a sheaf on $Y$ so two show this is a functor we must define it on morphisms and check it commutes with composition. Since a morphism $\Phi: \cF \to \cG$ is just a natural transformation of functors, we define $\pi^*(\Phi)$ to be the whiskering of $\Phi$ with $\pi^{-1}$, ie. precompose with $\pi^{-1}$ on each natural transformation to get a natural transformation $\pi^*(\Phi): \pi^*\cF \to \pi^* \cG$. It is clear that it is a functor since it is defined via precomposition. 
+\end{proof}
+
+\begin{exercise}
+    Suppose that $\cF$ and $\cG$ are two sheaves of sets on $X$. Let $\mathcal{Hom}(\cF, \cG)$ be the collection of data 
+    \[ \mathcal{Hom}(\cF, \cG)(U):= \Mor(\cF|_{U}, \cG|_{U}) \] 
+    Show that this is a sheaf of sets on $X$. 
+\end{exercise}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{exercise} \mbox{}
+    \begin{enumerate}[label = (\alph*)]
+        \item If $\cF$ is a sheaf of sets on $X$, then show that $\mathcal{Hom}(\underline{\{p\}}, \cF) \cong \cF$, where $\underline{\{p\}}$ is the constant sheaf ``with values in the one element set $\underline{\{p\}}$''. 
+        \item If $\cF$ is a sheaf of abelian groups on $X$, then show that $\mathcal{Hom}_{Ab_X}(\underline{\bZ}, \cF) \cong \cF$
+        \item If $\cF$ is an $\cO_X$-module, then show that $\mathcal{Hom}_{Mod_{\cO_X}}(\cO_X, \cF) \cong \cF$ 
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    Show that $\ker_{\text{pre}}\Phi$ is a presheaf. 
+\end{exercise}
+
+\begin{exercise}
+    Show that the presheaf cokernel satisfies the universal property of cokernels in the category of presheaves. 
+\end{exercise}
+
+\begin{exercise}
+    Show that for a topological space $X$ with open set $U$, $\cF \mapsto \cF(U)$ gives a functor from presheaves of abelian groups on $X$, $Ab^{\text{pre}}_X$, to abelian groups, $Ab$. Then show this functor is exact. 
+\end{exercise}
+
+\begin{exercise}
+    Show that a sequence of presheaves $0 \to \cF_1 \to \cF_2 \to \cdots to \cF_n \to 0$ is exact if and only if $0 \to \cF_1(U) \to \cF_2(U) \to \cdots to \cF_n(U) \to 0$ is exact for all $U$. 
+\end{exercise}
+
+\begin{exercise}
+    Suppose that $\Phi: \cF \to \cG$ is a morphism of sheaves. Show that the presheaf kernel $\ker_{\text{pre}}\Phi$ is in fact a sheaf. Show that it satisfies the universal property of kernels. 
+\end{exercise}
+
+\begin{exercise}
+    Let $X$ be $\bC$ with the classical topology, let $\cO_X$ be the sheaf of holomorphic functions, and let $\cF$ be the presheaf of functions admitting a holomorphic logarithm. Describe an exact sequence of presheafs on $X$:  
+    \[ \begin{tikzcd}
+        0 \arrow[r] & \underline{Z} \arrow[r] & \cO_X \arrow[r] & \cF \arrow[r] & 0
+    \end{tikzcd} \]
+    where $\underline{Z} \to \cO_X$ is the natural inclusion and $\cO_X \to \cF$ is given by $f \mapsto \exp(2 \pi i f)$. Show that $\cF$ is not a sheaf. 
+\end{exercise}
