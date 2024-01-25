@@ -24,7 +24,21 @@
 \end{exercise}
 
 \begin{proof}
-    
+    First, note that this collection forms a presheaf since the restriction maps $\mathcal{Hom}$ are given by just removing the components of the natural transformation corrsponding to open sets no longer in the restriction and so they clearly commute with eachother. To check this satisfies the sheaf conditions, let $\{U_i\}_{i \in I}$ be an open cover of $U$ and let $\{\eta_i\}_{i \in I}$ be a collection of morphisms of sheaves satisfying the gluability conditions. To produce a natural transformation $\cF|_U \to \cG|_U$ proceed as follows: For each open set $V \subseteq W$, the right square on the diagram commutes and so, using the fact that $G(V)$ is a limit of the lower line of the diagram we can produce a unique map $F(V) \to G(V)$ such that its restriction to each $U_i$ aggres with $\eta_i$ 
+    \[ \begin{tikzcd}
+        F(W) \arrow[r] \arrow[d, dashed, "\eta(W)"] & \prod \cF(U_i \cap W) \arrow[r] \arrow[r, shift left] \arrow[d, "\eta_i(W)"] & \prod \cF(U_i \cap U_j \cap W) \arrow[d, "\eta_i|_{U_i \cap U_j}(W)"] \\ 
+        \cG(W) \arrow[r] & \prod \cG(U_i \cap V) \arrow[r] \arrow[r, shift left] & \prod \cG(U_i \cap U_j \cap V) \\
+    \end{tikzcd} \] 
+    To check that this collection $\eta(U)$ forms a natural transformation we need to check that it commutes with restriction maps. To do this notice that given $V \subseteq W$, the map $\eta(W) \circ \res_{W, V}$ makes the diagram commute. However, each $\eta_i$ is a natural transformation and so $\eta_i(W) \circ \res_{W, V} = \res_{W, V} \circ \eta_i(V)$ and so the map $\circ \res_{W, V} \circ \eta(V)$ also makes this diagram commute and so, since such a map must be unique, they are equal. 
+    \[ \begin{tikzcd}
+    F(W) \arrow[r] \arrow[d, dashed] & \prod \cF(U_i \cap W) \arrow[r] \arrow[r, shift left] \arrow[d, "\eta_i \circ \res_{W,V}"] & \prod \cF(U_i \cap U_j \cap W) \arrow[d, "\eta_i|_{U_i \cap U_j \cap V} \circ \res_{W, V}"] \\ 
+    \cG(V) \arrow[r] & \prod \cG(U_i \cap V) \arrow[r] \arrow[r, shift left] & \prod \cG(U_i \cap U_j \cap V) 
+    \end{tikzcd} \] 
+    Finally, to show that this collection satisfies the identity axiom note that if $\eta_1$ and $\eta_2$ are equal when restricted to all open sets of the cover, then observe that both $\eta_1$ and $\eta_2$ make the following limit diagram commute and hence are equal. 
+    \[ \begin{tikzcd}
+        F(U) \arrow[r] \arrow[d, dashed] & \prod \cF(U_i) \arrow[r] \arrow[r, shift left] \arrow[d, "\eta_1|_{U_i} = \eta_2|_{U_i}"] & \prod \cF(U_i \cap U_j) \arrow[d, "\eta_1|_{U_i \cap U_j} = \eta_2|_{U_i \cap U_j}"] \\ 
+        \cG(U) \arrow[r] & \prod \cG(U_i) \arrow[r] \arrow[r, shift left] & \prod \cG(U_i \cap U_j) 
+    \end{tikzcd} \]
 \end{proof}
 
 \begin{exercise} \mbox{}
@@ -35,9 +49,20 @@
     \end{enumerate}
 \end{exercise}
 
+\begin{proof} \mbox{}
+    \begin{enumerate}[label = (\alph*)]
+        \item WLOG we consider the case where $X$ is connected as any sheaf can just be written as the product of sheaves restricted to its connected components. If $X$ is connected then $\underline{\{p\}}(U) = \{p\}$ for any open set $U$ so the data of a natural transformation $\eta: \underline{\{p\}}|_U \to \cF|_U$ is a map $\{p\} \to \cF(V)$ for all open $V \subseteq U$ such that these maps commute with the restriction maps. However, notice that this implies that we must have $\res_{U, V} \circ \eta(U)(p) = \eta(V)(p)$ for all open sets $V$ and so the identity axiom shows this map is uniquely determined by $\eta(U)(p)$. Hence, since $\Mor(\{p\}, \cF(U))$ is just $\cF(U)$ we see that $\mathcal{Hom}(\underline{\{p\}}, \cF) \cong \cF$ as desired. 
+    \end{enumerate}
+    The proofs for (b) and (c) are identical to the above proof as they both use the fact that morphisms from $\bZ$ and $\cO_X$ are in bijection with the elements of the target set in the categories $Ab$ and Mod $\cO_X$, respectively. This essentially says that each of these elements represents the From functor from their respective category to $Sets$. 
+\end{proof}
+
 \begin{exercise}
     Show that $\ker_{\text{pre}}\Phi$ is a presheaf. 
 \end{exercise}
+
+\begin{proof}
+    
+\end{proof}
 
 \begin{exercise}
     Show that the presheaf cokernel satisfies the universal property of cokernels in the category of presheaves. 
