@@ -1,0 +1,8 @@
+
+\begin{proposition}
+    Let $U = \bA^2_k \setminus \{[(x,y)]\}$. The scheme $(U, \cO_{\bA^2}|_U)$ is not affine. 
+\end{proposition}
+
+\begin{proof}
+    We have shown that $\Gamma(U, \cO_{\bA^2}|_{U}) = k[,y]$ and so if $U$ was affine we would have an isomorphism $(U, \cO_{\bA^2|_{U}}) \cong ( \spec A', \cO_{A'})$ for some ring $A'$. Hence, we have a homeomorphism $\pi: U \to \spec A'$ and an isomorphism of sheaves $\vp: \cO_{A'} \to \pi_* \cO_{\bA^2}|_U$. Taking global sections, this gives an isomorphism $\vp: A' \to k[x,y]$ and so, letting $a, b \in A'$ be such that $\vp(a)=x$ and $\vp(b)=y$, we have that $A' =k[a,b]$. Now, since $\pi$ is uniquely determined by $\vp$ we have that $\pi([(x)]) = [(a)]$ and $\pi([y])= [(b)]$ and so $\pi(V(x)) = V(a), \pi(V(y))=V(b)$ but $\pi( V(x) \cap V(y)) = \vn \neq V(a) \cap V(b)$, a contradiction. Hence, the above scheme cannot be affine. 
+\end{proof}
